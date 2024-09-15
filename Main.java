@@ -1,24 +1,20 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
+    public static void checkSumSign() {
+        int a = ThreadLocalRandom.current().nextInt(-10, 10);
+        int b = ThreadLocalRandom.current().nextInt(-10, 10);
+        System.out.println(a);
+        System.out.println(b);
+        int res = a + b;
+        if (res >= 0) {
+            System.out.println("Сумма положительная");
+        } else {
+            System.out.println("Сумма отрицательная");
+        }
+    }
+
     public static void main(String[] args) {
-        String[] words = {"Yellow", "Black", "Green", "Red", "Green", "Blue", "Yellow", "Red", "Red", "Pink", "Yellow"};
-        Set<String> uniqueWords = new HashSet<>();
-        Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            uniqueWords.add(word);
-        }
-        for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                wordCount.put(word, wordCount.get(word) + 1);
-            } else {
-                wordCount.put(word,1);
-            }
-        }
-        System.out.println("Уникальные слова: " + uniqueWords);
-        System.out.println("Количество повторений: " + wordCount);
+        Main.checkSumSign();
     }
 }
