@@ -1,24 +1,36 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 public class Main {
     public static void main(String[] args) {
-        String[] words = {"Yellow", "Black", "Green", "Red", "Green", "Blue", "Yellow", "Red", "Red", "Pink", "Yellow"};
-        Set<String> uniqueWords = new HashSet<>();
-        Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            uniqueWords.add(word);
+        String[][] correctMatrix = {
+                {"11", "22", "33", "44"},
+                {"55", "66", "77", "88"},
+                {"99", "00", "111", "222"},
+                {"333", "444", "555", "666"}
+        };
+        String[][] incorrectSizeMatrix = {
+                {"11", "22", "33", "44"},
+                {"55", "66", "77", "88"},
+                {"99", "00", "111", "222"},
+        };
+        String[][] incorrectDataMatrix = {
+                {"11", "22", "33", "44"},
+                {"55", "66", "77", "88"},
+                {"RR", "00", "111", "222"},
+                {"333", "444", "555", "666"}
+        };
+        try {
+            System.out.println("Сумма элементов массива равна " + Converter.stringConverter(correctMatrix) + ".\n");
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
         }
-        for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                wordCount.put(word, wordCount.get(word) + 1);
-            } else {
-                wordCount.put(word,1);
-            }
+        try {
+            System.out.println("Сумма элементов массива равна " + Converter.stringConverter(incorrectSizeMatrix) + ".\n");
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println("Уникальные слова: " + uniqueWords);
-        System.out.println("Количество повторений: " + wordCount);
+        try {
+            System.out.println("Сумма элементов массива равна " + Converter.stringConverter(incorrectDataMatrix) + ".\n");
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
