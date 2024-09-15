@@ -1,24 +1,10 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 public class Main {
     public static void main(String[] args) {
-        String[] words = {"Yellow", "Black", "Green", "Red", "Green", "Blue", "Yellow", "Red", "Red", "Pink", "Yellow"};
-        Set<String> uniqueWords = new HashSet<>();
-        Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            uniqueWords.add(word);
-        }
-        for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                wordCount.put(word, wordCount.get(word) + 1);
-            } else {
-                wordCount.put(word,1);
-            }
-        }
-        System.out.println("Уникальные слова: " + uniqueWords);
-        System.out.println("Количество повторений: " + wordCount);
+        Employee[] company = new Employee[5];
+        company[0] = new Employee("Начальник Начальников", "Руководитель", "bigboss@gmail.com", "1000",200000,50);
+        company[1] = new Employee("Зам Замов", "Заместитель руководителя", "boss@gmail.com", "1001",150000,39);
+        company[2] = new Employee("Инж Инженеров", "Инженер", "engineer@gmail.com", "3000",100000,45);
+        company[3] = new Employee("Работяга Работягов", "Сотрудник", "redneck@gmail.com", "3010",50000,30);
+        company[4] = new Employee("Клин Клинингов", "Уборщик", "janitor@gmail.com", "4321",30000,47);
     }
 }
