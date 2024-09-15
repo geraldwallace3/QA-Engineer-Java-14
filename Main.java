@@ -1,24 +1,21 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
+    public static void printColor() {
+        int value = ThreadLocalRandom.current().nextInt(-100, 200);
+        System.out.println(value);
+        if ((value > 0) && (value <= 100)) {
+            System.out.println("Желтый");
+        }
+        if (value > 100) {
+            System.out.println("Зеленый");
+        }
+        if (value <= 0) {
+            System.out.println("Красный");
+        }
+    }
+
     public static void main(String[] args) {
-        String[] words = {"Yellow", "Black", "Green", "Red", "Green", "Blue", "Yellow", "Red", "Red", "Pink", "Yellow"};
-        Set<String> uniqueWords = new HashSet<>();
-        Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            uniqueWords.add(word);
-        }
-        for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                wordCount.put(word, wordCount.get(word) + 1);
-            } else {
-                wordCount.put(word,1);
-            }
-        }
-        System.out.println("Уникальные слова: " + uniqueWords);
-        System.out.println("Количество повторений: " + wordCount);
+        Main.printColor();
     }
 }
