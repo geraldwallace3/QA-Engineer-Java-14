@@ -1,24 +1,20 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
+    public static void method9() {
+        Scanner scr = new Scanner(System.in);
+        System.out.println("Введите год");
+        int a = scr.nextInt();
+        boolean b1 = true;
+        boolean b2 = false;
+        if ((a % 400 == 0) || (a % 400 % 100 != 0 && a % 400 % 4 == 0)) {
+            System.out.println(b1);
+        } else System.out.println(b2);
+
+    }
+
     public static void main(String[] args) {
-        String[] words = {"Yellow", "Black", "Green", "Red", "Green", "Blue", "Yellow", "Red", "Red", "Pink", "Yellow"};
-        Set<String> uniqueWords = new HashSet<>();
-        Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            uniqueWords.add(word);
-        }
-        for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                wordCount.put(word, wordCount.get(word) + 1);
-            } else {
-                wordCount.put(word,1);
-            }
-        }
-        System.out.println("Уникальные слова: " + uniqueWords);
-        System.out.println("Количество повторений: " + wordCount);
+        Main.method9();
     }
 }
