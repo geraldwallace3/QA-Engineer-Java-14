@@ -1,24 +1,34 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 public class Main {
     public static void main(String[] args) {
-        String[] words = {"Yellow", "Black", "Green", "Red", "Green", "Blue", "Yellow", "Red", "Red", "Pink", "Yellow"};
-        Set<String> uniqueWords = new HashSet<>();
-        Map<String, Integer> wordCount = new HashMap<>();
-        for (String word : words) {
-            uniqueWords.add(word);
+        Dog basker = new Dog("Баскер");
+        Dog rex = new Dog("Рекс");
+        Cat matroskin = new Cat("Матроскин");
+        Cat begemot = new Cat("Бегемот");
+        Cat[] cats = new Cat[3];
+        cats[0] = new Cat("Белый");
+        cats[1] = new Cat("Черный");
+        cats[2] = new Cat("Рыжий");
+
+        Bowl bowl = new Bowl(10);
+        for (Cat cat: cats) {
+            cat.setHungry();
+            cat.eat();
+            bowl.decreaseKitekat(5);
+            System.out.println("Количество еды в миске: " + bowl.getKitekat());
+            bowl.addKitekat(10);
+            System.out.println("Количество еды в миске: " + bowl.getKitekat());
+            System.out.println("Кот " + cat.getName() + " голоден: " + cat.hungry());
+            System.out.println();
         }
-        for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                wordCount.put(word, wordCount.get(word) + 1);
-            } else {
-                wordCount.put(word,1);
-            }
-        }
-        System.out.println("Уникальные слова: " + uniqueWords);
-        System.out.println("Количество повторений: " + wordCount);
+
+
+
+        begemot.run(100);
+        matroskin.swim(250);
+        basker.run(400);
+        rex.swim(8);
+        System.out.println("Общее количество животных: " + Animals.getCountAnimals());
+        System.out.println("Кошек: " + Cat.getCountCat());
+        System.out.println("Собак: " + Dog.getCountDog());
     }
 }
